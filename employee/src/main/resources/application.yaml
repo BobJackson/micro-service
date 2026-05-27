@@ -31,3 +31,12 @@ spring:
       database: 0
 server:
   port: 0
+sa-token:
+  token-name: Authorization
+  timeout: 86400
+  active-timeout: -1
+  is-concurrent: true
+  is-share: false
+  max-login-count: -1
+  token-style: uuid
+  is-log: true
