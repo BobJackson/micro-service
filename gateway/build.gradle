@@ -28,6 +28,7 @@ dependencies {
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
+    implementation 'com.github.ben-manes.caffeine:caffeine'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
@@ -41,4 +42,11 @@ dependencyManagement {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.withType(JavaExec).configureEach {
+    jvmArgs = [
+        '--add-opens', 'java.base/sun.misc=ALL-UNNAMED',
+        '--sun-misc-unsafe-memory-access=allow'
+    ]
 }
