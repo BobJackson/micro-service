@@ -1,7 +1,9 @@
 package com.wangyousong.practice.gateway.filter;
 
+import cn.dev33.satoken.context.SaHolder;
 import cn.dev33.satoken.reactor.filter.SaReactorFilter;
 import cn.dev33.satoken.stp.StpUtil;
+import cn.dev33.satoken.util.SaResult;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -32,6 +34,10 @@ public class SaTokenAuthFilter {
                     StpUtil.checkLogin();
                 })
                 // 异常处理
-                .setError(e -> "{\"code\": 401, \"message\": \"未登录或token已过期\"}");
+                .setError(e -> {
+                    SaHolder.getResponse().setStatus(401);
+                    SaHolder.getResponse().setHeader("Content-Type", "application/json;charset=UTF-8");
+                    return SaResult.error("未登录或token已过期").setCode(401);
+                });
     }
 }
