@@ -2,7 +2,6 @@ package com.wangyousong.practice.employee.config;
 
 import cn.dev33.satoken.stp.StpUtil;
 import org.springframework.data.domain.AuditorAware;
-import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
@@ -10,7 +9,6 @@ import java.util.Optional;
  * 审计信息提供者
  * 从 Sa-Token 中获取当前登录用户作为审计信息
  */
-@Component
 public class AuditorAwareImpl implements AuditorAware<String> {
 
     @Override
