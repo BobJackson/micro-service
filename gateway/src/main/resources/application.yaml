@@ -16,3 +16,19 @@ spring:
           discovery:
             locator:
               enabled: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      database: 0
+
+sa-token:
+  token-name: Authorization
+  timeout: 86400
+  active-timeout: -1
+  is-concurrent: true
+  is-share: false
+  max-login-count: -1
+  token-style: uuid
+  is-log: true

@@ -21,6 +21,7 @@ repositories {
 ext {
     set('springCloudVersion', "2025.1.1")
     set('springCloudAlibabaVersion', "2025.1.0.0")
+    set('saTokenVersion', "1.39.0")
 }
 
 dependencies {
@@ -29,6 +30,9 @@ dependencies {
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
     implementation 'com.github.ben-manes.caffeine:caffeine'
+    implementation "cn.dev33:sa-token-reactor-spring-boot3-starter:${saTokenVersion}"
+    implementation "cn.dev33:sa-token-redis-jackson:${saTokenVersion}"
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
     runtimeOnly 'io.netty:netty-resolver-dns-native-macos:4.1.115.Final:osx-aarch_64'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
