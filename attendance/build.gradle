@@ -27,21 +27,36 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-flyway'
-    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
     implementation 'org.flywaydb:flyway-database-postgresql'
+    runtimeOnly 'org.postgresql:postgresql'
+
     implementation "cn.dev33:sa-token-spring-boot3-starter:${saTokenVersion}"
     implementation "cn.dev33:sa-token-redis-jackson:${saTokenVersion}"
     implementation 'org.springframework.security:spring-security-crypto'
+
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+
+    // Spring Cloud OpenFeign and loadbalancer
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
+    implementation 'com.github.ben-manes.caffeine:caffeine'
+
+    // 依赖 employee-api 模块
+    implementation 'com.wangyousong.practice:employee-api:0.0.1-SNAPSHOT'
+
     runtimeOnly 'io.netty:netty-resolver-dns-native-macos:4.1.115.Final:osx-aarch_64'
+
     compileOnly 'org.projectlombok:lombok'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-flyway-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'

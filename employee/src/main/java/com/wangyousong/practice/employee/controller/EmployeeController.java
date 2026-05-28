@@ -63,4 +63,22 @@ public class EmployeeController {
         employeeService.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    /**
+     * 验证员工是否存在（供其他微服务调用）
+     */
+    @GetMapping("/{id}/exists")
+    public ResponseEntity<Boolean> existsEmployee(@PathVariable Long id) {
+        boolean exists = employeeService.existsById(id);
+        return ResponseEntity.ok(exists);
+    }
+
+    /**
+     * 获取员工姓名（供其他微服务调用）
+     */
+    @GetMapping("/{id}/name")
+    public ResponseEntity<String> getEmployeeName(@PathVariable Long id) {
+        String name = employeeService.getEmployeeName(id);
+        return ResponseEntity.ok(name);
+    }
 }

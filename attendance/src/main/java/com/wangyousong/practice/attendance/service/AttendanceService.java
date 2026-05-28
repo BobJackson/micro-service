@@ -4,6 +4,7 @@ import com.wangyousong.practice.attendance.dto.AttendanceRequest;
 import com.wangyousong.practice.attendance.dto.AttendanceResponse;
 import com.wangyousong.practice.attendance.entity.AttendanceRecord;
 import com.wangyousong.practice.attendance.repository.AttendanceRepository;
+import com.wangyousong.practice.employee.api.EmployeeFeignClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,12 +20,18 @@ import java.util.List;
 public class AttendanceService {
 
     private final AttendanceRepository attendanceRepository;
+    private final EmployeeFeignClient employeeFeignClient;
 
     /**
      * 创建考勤记录（签到）
      */
     @Transactional
     public AttendanceResponse checkIn(AttendanceRequest request) {
+        // 通过 Feign Client 调用验证员工是否存在
+        if (!employeeFeignClient.existsEmployee(request.getEmployeeId())) {
+            throw new RuntimeException("员工不存在，ID: " + request.getEmployeeId());
+        }
+
         // 检查是否已存在当天的考勤记录
         if (attendanceRepository.findByEmployeeIdAndAttendanceDate(
                 request.getEmployeeId(), request.getAttendanceDate()).isPresent()) {

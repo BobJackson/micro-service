@@ -27,6 +27,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/employee" />
+            <option value="$PROJECT_DIR$/employee/employee-api" />
           </set>
         </option>
       </GradleProjectSettings>

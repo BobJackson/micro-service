@@ -78,6 +78,22 @@ public class EmployeeService {
         employeeRepository.deleteById(id);
     }
 
+    /**
+     * 验证员工是否存在
+     */
+    public boolean existsById(Long id) {
+        return employeeRepository.existsById(id);
+    }
+
+    /**
+     * 获取员工姓名
+     */
+    public String getEmployeeName(Long id) {
+        return employeeRepository.findById(id)
+                .map(Employee::getName)
+                .orElse(null);
+    }
+
     private EmployeeResponse toResponse(Employee employee) {
         return EmployeeResponse.builder()
                 .id(employee.getId())
