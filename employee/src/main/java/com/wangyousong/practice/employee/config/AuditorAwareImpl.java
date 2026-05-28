@@ -1,7 +1,9 @@
 package com.wangyousong.practice.employee.config;
 
 import cn.dev33.satoken.stp.StpUtil;
+import org.jspecify.annotations.NonNull;
 import org.springframework.data.domain.AuditorAware;
+
 
 import java.util.Optional;
 
@@ -12,6 +14,7 @@ import java.util.Optional;
 public class AuditorAwareImpl implements AuditorAware<String> {
 
     @Override
+    @NonNull
     public Optional<String> getCurrentAuditor() {
         try {
             // 从 Sa-Token 获取当前登录用户ID
