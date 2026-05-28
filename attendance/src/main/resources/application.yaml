@@ -44,6 +44,22 @@ sa-token:
   token-style: uuid
   is-log: true
 
+# Actuator 配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus # 只暴露必要的端点
+  endpoint:
+    health:
+      show-details: when-authorized # 仅授权时显示详细信息
+      probes:
+        enabled: true # 启用 K8s 健康检查探针
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
 # OpenFeign 配置
 spring.cloud.openfeign:
   client:

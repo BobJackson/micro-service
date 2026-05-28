@@ -32,3 +32,19 @@ sa-token:
   max-login-count: -1
   token-style: uuid
   is-log: true
+
+# Actuator 配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus,gateway # Gateway 额外暴露 gateway 端点
+  endpoint:
+    health:
+      show-details: when-authorized # 仅授权时显示详细信息
+      probes:
+        enabled: true # 启用 K8s 健康检查探针
+  prometheus:
+    metrics:
+      export:
+        enabled: true

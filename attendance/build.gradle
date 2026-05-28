@@ -34,6 +34,9 @@ dependencies {
     implementation 'org.flywaydb:flyway-database-postgresql'
     runtimeOnly 'org.postgresql:postgresql'
 
+    // Actuator - 健康检查和指标监控
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
     implementation "cn.dev33:sa-token-spring-boot3-starter:${saTokenVersion}"
     implementation "cn.dev33:sa-token-redis-jackson:${saTokenVersion}"
     implementation 'org.springframework.security:spring-security-crypto'
