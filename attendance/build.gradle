@@ -20,6 +20,7 @@ ext {
     set('springCloudVersion', "2025.1.1")
     set('springCloudAlibabaVersion', "2025.1.0.0")
     set('saTokenVersion', "1.39.0")
+    springBootAdminVersion = "4.0.3"
 }
 
 repositories {
@@ -36,6 +37,9 @@ dependencies {
 
     // Actuator - 健康检查和指标监控
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+    // Spring Boot Admin Client
+    implementation 'de.codecentric:spring-boot-admin-starter-client'
 
     implementation "cn.dev33:sa-token-spring-boot3-starter:${saTokenVersion}"
     implementation "cn.dev33:sa-token-redis-jackson:${saTokenVersion}"
@@ -78,6 +82,7 @@ dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
         mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
+        mavenBom "de.codecentric:spring-boot-admin-dependencies:$springBootAdminVersion"
     }
 }
 

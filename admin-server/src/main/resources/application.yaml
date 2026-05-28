@@ -1,0 +1,36 @@
+spring:
+  thymeleaf:
+    check-template-location: false
+  application:
+    name: admin-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        import-check:
+          enabled: false
+
+server:
+  port: 9090
+
+# Actuator 配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # Admin Server 需要暴露所有端点
+  endpoint:
+    health:
+      show-details: always
+
+# Spring Boot Admin 配置
+spring.boot.admin:
+  discovery:
+    enabled: true # 启用服务发现
+    services: "*" # 监控所有服务（或指定服务名，如：auth,employee,attendance）
+
+
+
