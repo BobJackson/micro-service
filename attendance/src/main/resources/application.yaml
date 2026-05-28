@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: attendance
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        import-check:
+          enabled: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/attendance_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password:
+      database: 0
+server:
+  port: 0
+sa-token:
+  token-name: Authorization
+  timeout: 86400
+  active-timeout: -1
+  is-concurrent: true
+  is-share: false
+  max-login-count: -1
+  token-style: uuid
+  is-log: true
