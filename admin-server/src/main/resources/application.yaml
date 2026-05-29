@@ -1,6 +1,4 @@
 spring:
-  thymeleaf:
-    check-template-location: false
   application:
     name: admin-server
   cloud:

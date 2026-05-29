@@ -22,7 +22,7 @@ ext {
     set('springCloudVersion', "2025.1.1")
     set('springCloudAlibabaVersion', "2025.1.0.0")
     set('saTokenVersion', "1.39.0")
-    springBootAdminVersion = "4.0.3"
+    springBootAdminVersion = "4.0.4"
 }
 
 dependencies {
