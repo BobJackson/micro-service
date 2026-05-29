@@ -1,5 +1,19 @@
 # 微服务框架
 
+## 前置条件
+
+* JDK 25
+* postgresql
+* redis
+* nacos
+* skywalking
+
+## 数据库
+
+* attendance_db
+* employee_db
+* auth_db
+
 ## 解决启动日志中的2个WARNING
 
 添加VM参数
