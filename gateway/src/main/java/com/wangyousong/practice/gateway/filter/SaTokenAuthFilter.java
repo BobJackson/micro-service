@@ -26,7 +26,9 @@ public class SaTokenAuthFilter {
                 .addExclude(
                         "/auth/login",
                         "/auth/register",
-                        "/auth/logout"
+                        "/auth/logout",
+                        // Spring Boot Admin 监控所需的 Actuator 端点
+                        "/actuator/**"
                 )
                 // 鉴权逻辑
                 .setAuth(obj -> {

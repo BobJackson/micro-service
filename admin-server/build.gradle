@@ -28,7 +28,6 @@ ext {
 dependencies {
     // Spring Boot Admin Server
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'de.codecentric:spring-boot-admin-starter-server'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
